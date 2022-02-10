@@ -478,7 +478,10 @@ if (hosversionBefore(8, 0, 0)) {
 		delete sqlitedb;
 		sqlitedb = nullptr;
 	}
-	
+	if( remove( "sdmc:/jkanimelink.txt" ) != 0 )
+    printf( "Error deleting file" );
+  	else
+    printf( "File successfully deleted" );
     ImGui_ImplOpenGL3_Shutdown();
     ImGui_ImplSDL2_Shutdown();
     ImGui::DestroyContext();
