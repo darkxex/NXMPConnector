@@ -429,7 +429,6 @@ if (hosversionBefore(8, 0, 0)) {
 #endif
 
 	GUI::initMpv();
-	
 	GUI::RenderLoop();
 	printf("Ending Render Loop\n");
 

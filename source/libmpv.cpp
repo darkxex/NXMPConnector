@@ -3,6 +3,7 @@
 #include <sstream>
 #include "libmpv.h"
 #include "utils.h"
+#include <fstream>
 #ifdef NXMP_SWITCH
 #include "SwitchSys.h"
 #endif
@@ -115,6 +116,19 @@ libMpv::libMpv(const std::string &configDir) {
 	std::sort(decoderlist.begin(),decoderlist.end(),codecSort);
 	printf("MPV Init Completed\n");
 	
+	 std::string line;
+  std::ifstream myfile ("sdmc:/jkanimelink.txt");
+  if (myfile.is_open())
+  {
+    while ( std::getline (myfile,line) )
+    {
+      loadFile(line);
+	  break;
+    }
+    myfile.close();
+  }
+	
+
 }
 
 void libMpv::loadFile(std::string _path){
